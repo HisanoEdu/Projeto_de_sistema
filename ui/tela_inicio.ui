@@ -99,24 +99,7 @@ color: rgb(255, 255, 255);</string>
       <string>Descubra Filmes e Séries</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="btn_Entrar">
-     <property name="geometry">
-      <rect>
-       <x>824</x>
-       <y>20</y>
-       <width>81</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(255, 0, 0);</string>
-     </property>
-     <property name="text">
-      <string>Entrar</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="tela_de_inicio">
      <property name="geometry">
       <rect>
        <x>-10</x>
@@ -135,7 +118,7 @@ background-color: rgb(255, 0, 0);</string>
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="label_2">
+    <widget class="QLabel" name="Img_inicio">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -154,13 +137,12 @@ background-color: rgb(255, 0, 0);</string>
       <bool>true</bool>
      </property>
     </widget>
-    <zorder>label_2</zorder>
-    <zorder>label</zorder>
+    <zorder>Img_inicio</zorder>
+    <zorder>tela_de_inicio</zorder>
     <zorder>txt_CineFilmes</zorder>
     <zorder>txt_Seu_Guia_de_Filmes_e_Series</zorder>
     <zorder>txt_Venha_conferir</zorder>
     <zorder>btn_Descubra_Filmes_e_Series</zorder>
-    <zorder>btn_Entrar</zorder>
    </widget>
   </widget>
  </widget>

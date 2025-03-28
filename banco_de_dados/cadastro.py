@@ -10,7 +10,6 @@ def conectar():
             user="root",
             password="",  # Coloque a senha se necessário
             database="sistema_cadastro",  # Nome do banco de dados
-            port=3306  # Porta padrão do MySQL
         )
         print("Conexão bem-sucedida!")
         return conexao

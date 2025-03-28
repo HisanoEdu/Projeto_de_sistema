@@ -38,33 +38,27 @@ class Ui_Pag_inicial(object):
         self.txt_Venha_conferir.setGeometry(QRect(20, 170, 131, 16))
         self.txt_Venha_conferir.setStyleSheet(u"color: rgb(255, 255, 255);\n"
 "font: 600 12pt \"Segoe UI\";")
-        self.btn_Descubra_Filmes_e_Series = QPushButton(self.Home)
-        self.btn_Descubra_Filmes_e_Series.setObjectName(u"btn_Descubra_Filmes_e_Series")
-        self.btn_Descubra_Filmes_e_Series.setGeometry(QRect(20, 220, 231, 31))
-        self.btn_Descubra_Filmes_e_Series.setStyleSheet(u"color: rgb(255, 0, 0);\n"
-"background-color: rgb(255, 0, 0);\n"
-"color: rgb(255, 255, 255);")
         self.btn_Entrar = QPushButton(self.Home)
         self.btn_Entrar.setObjectName(u"btn_Entrar")
-        self.btn_Entrar.setGeometry(QRect(824, 20, 81, 24))
-        self.btn_Entrar.setStyleSheet(u"color: rgb(255, 255, 255);\n"
-"background-color: rgb(255, 0, 0);")
-        self.label = QLabel(self.Home)
-        self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(-10, -10, 981, 451))
-        self.label.setPixmap(QPixmap(u":/fme/fme.jpg"))
-        self.label.setScaledContents(True)
-        self.label_2 = QLabel(self.Home)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setGeometry(QRect(0, -1, 931, 421))
-        self.label_2.setPixmap(QPixmap(u":/icon 01/fme.jpg"))
-        self.label_2.setScaledContents(True)
-        self.label_2.raise_()
-        self.label.raise_()
+        self.btn_Entrar.setGeometry(QRect(20, 220, 231, 31))
+        self.btn_Entrar.setStyleSheet(u"color: rgb(255, 0, 0);\n"
+"background-color: rgb(255, 0, 0);\n"
+"color: rgb(255, 255, 255);")
+        self.tela_de_inicio = QLabel(self.Home)
+        self.tela_de_inicio.setObjectName(u"tela_de_inicio")
+        self.tela_de_inicio.setGeometry(QRect(-10, -10, 981, 451))
+        self.tela_de_inicio.setPixmap(QPixmap(u":/fme/fme.jpg"))
+        self.tela_de_inicio.setScaledContents(True)
+        self.Img_inicio = QLabel(self.Home)
+        self.Img_inicio.setObjectName(u"Img_inicio")
+        self.Img_inicio.setGeometry(QRect(0, -1, 931, 421))
+        self.Img_inicio.setPixmap(QPixmap(u":/icon 01/fme.jpg"))
+        self.Img_inicio.setScaledContents(True)
+        self.Img_inicio.raise_()
+        self.tela_de_inicio.raise_()
         self.txt_CineFilmes.raise_()
         self.txt_Seu_Guia_de_Filmes_e_Series.raise_()
         self.txt_Venha_conferir.raise_()
-        self.btn_Descubra_Filmes_e_Series.raise_()
         self.btn_Entrar.raise_()
         Pag_inicial.setCentralWidget(self.tela_inicial)
 
@@ -78,15 +72,14 @@ class Ui_Pag_inicial(object):
         self.txt_CineFilmes.setText(QCoreApplication.translate("Pag_inicial", u"CineFilmes", None))
         self.txt_Seu_Guia_de_Filmes_e_Series.setText(QCoreApplication.translate("Pag_inicial", u"Seu Guia de Filmes e S\u00e9ries.", None))
         self.txt_Venha_conferir.setText(QCoreApplication.translate("Pag_inicial", u"Venha conferir.", None))
-        self.btn_Descubra_Filmes_e_Series.setText(QCoreApplication.translate("Pag_inicial", u"Descubra Filmes e S\u00e9ries", None))
         self.btn_Entrar.setText(QCoreApplication.translate("Pag_inicial", u"Entrar", None))
-        self.label.setText("")
-        self.label_2.setText("")
+        self.tela_de_inicio.setText("")
+        self.Img_inicio.setText("")
     # retranslateUi
 
 import sys
 from PySide6.QtWidgets import QApplication, QMainWindow
-from Home import Ui_Pag_inicial
+from tela_inicio import Ui_Pag_inicial
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
