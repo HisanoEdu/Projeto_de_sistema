@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>tela_perfil</class>
+ <widget class="QMainWindow" name="tela_perfil">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1004</width>
+    <height>471</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="tela_Perfil_1">
+   <widget class="QFrame" name="tela_de_perfil">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>10</y>
+      <width>791</width>
+      <height>401</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Shape::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Shadow::Raised</enum>
+    </property>
+    <widget class="QFrame" name="barra">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>811</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(34, 31, 31);</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Shape::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Shadow::Raised</enum>
+     </property>
+     <widget class="QLabel" name="btn_Cine_filme">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 0, 0);
+font: 900 22pt &quot;Segoe UI&quot;;</string>
+      </property>
+      <property name="text">
+       <string>CineFilmes</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btn_Filmes_e_Series">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>20</y>
+        <width>101</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 255, 0);
+color: rgb(255, 0, 0);
+background-color: rgb(34, 31, 31);</string>
+      </property>
+      <property name="text">
+       <string>Filmes e Séries</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btn_Recomendacao_aleatorio">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>20</y>
+        <width>171</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Recomendação aleatório</string>
+      </property>
+     </widget>
+     <zorder>btn_Recomendacao_aleatorio</zorder>
+     <zorder>btn_Cine_filme</zorder>
+     <zorder>btn_Filmes_e_Series</zorder>
+    </widget>
+    <widget class="QLabel" name="btn_Icon_perfil">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>150</y>
+       <width>81</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="../python/qrc/perfil.qrc">:/perfil 1/icon_perfil.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QFrame" name="tela_inscricao">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>110</y>
+       <width>391</width>
+       <height>211</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(34, 31, 31);</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Shape::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Shadow::Raised</enum>
+     </property>
+     <widget class="QLabel" name="txt_Nome">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>20</y>
+        <width>49</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Nome</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="btn_Nome">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>40</y>
+        <width>321</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="txt_E_mail">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>70</y>
+        <width>49</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>E-mail</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="btn_e_mail">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>90</y>
+        <width>321</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="txt_Senha">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>120</y>
+        <width>49</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Senha</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="btn_Senha">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>140</y>
+        <width>321</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="echoMode">
+       <enum>QLineEdit::EchoMode::Password</enum>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1004</width>
+     <height>33</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources>
+  <include location="../python/qrc/poster.qrc"/>
+  <include location="../python/qrc/perfil.qrc"/>
+ </resources>
+ <connections/>
+</ui>

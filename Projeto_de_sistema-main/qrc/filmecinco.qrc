@@ -1,0 +1,14 @@
+<RCC>
+  <qresource prefix="icon1">
+    <file>pousando no amor.jpg</file>
+  </qresource>
+  <qresource prefix="icon2">
+    <file>shop for killer.jpeg</file>
+  </qresource>
+  <qresource prefix="icon 3">
+    <file>duna serie.jpg</file>
+  </qresource>
+  <qresource prefix="icon4">
+    <file>icon_perfil.png</file>
+  </qresource>
+</RCC>

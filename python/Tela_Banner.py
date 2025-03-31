@@ -198,7 +198,7 @@ class BannerWindow(QMainWindow):
 
     def voltar_para_tela_filmes(self):
         # Importar MainWindow aqui para evitar importação circular
-        from python.Tela_home import MainWindow as FilmesMainWindow
+        from Tela_home import MainWindow as FilmesMainWindow
         # Criar uma nova instância da tela dos filmes
         self.filmes_window = FilmesMainWindow()
         self.filmes_window.show()

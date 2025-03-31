@@ -1,0 +1,65 @@
+<RCC>
+  <qresource prefix="icon 1">
+    <file>star wars.webp</file>
+  </qresource>
+  <qresource prefix="icon perfil">
+    <file>icon_perfil.png</file>
+  </qresource>
+  <qresource prefix="icon 2">
+    <file>btn_img_wicked.png</file>
+  </qresource>
+  <qresource prefix="icon 3">
+    <file>flow.webp</file>
+  </qresource>
+  <qresource prefix="icon 4">
+    <file>Ainda_Estou_Aqui.jpg</file>
+  </qresource>
+  <qresource prefix="icon 5">
+    <file>robo.jpg</file>
+  </qresource>
+  <qresource prefix="icon 6">
+    <file>avengers.jpg</file>
+  </qresource>
+  <qresource prefix="icon 7">
+    <file>disney.jpeg</file>
+  </qresource>
+  <qresource prefix="icon 8">
+    <file>Jonh wick.jpg</file>
+  </qresource>
+  <qresource prefix="icon 9">
+    <file>duna 2.webp</file>
+  </qresource>
+  <qresource prefix="icon 10">
+    <file>O_Problema_dos_3_Corpos.webp</file>
+  </qresource>
+  <qresource prefix="icon 11">
+    <file>single in seul.jpg</file>
+  </qresource>
+  <qresource prefix="icon 12">
+    <file>one piece red.jpg</file>
+  </qresource>
+  <qresource prefix="icon 13">
+    <file>ghost in the shell.jpg</file>
+  </qresource>
+  <qresource prefix="icon 14">
+    <file>Gladiador 2.webp</file>
+  </qresource>
+  <qresource prefix="icon 15">
+    <file>sena.webp</file>
+  </qresource>
+  <qresource prefix="icon 16">
+    <file>round 6.jpg</file>
+  </qresource>
+  <qresource prefix="icon 17">
+    <file>substancia.jpg</file>
+  </qresource>
+  <qresource prefix="icon 18">
+    <file>pousando no amor.jpg</file>
+  </qresource>
+  <qresource prefix="icon 19">
+    <file>shop for killer.jpeg</file>
+  </qresource>
+  <qresource prefix="icon 20">
+    <file>duna serie.jpg</file>
+  </qresource>
+</RCC>

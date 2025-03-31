@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1115</width>
+    <width>1104</width>
     <height>509</height>
    </rect>
   </property>
@@ -17,9 +17,9 @@
    <widget class="QFrame" name="Cadastrar">
     <property name="geometry">
      <rect>
-      <x>60</x>
+      <x>40</x>
       <y>10</y>
-      <width>981</width>
+      <width>1031</width>
       <height>441</height>
      </rect>
     </property>
@@ -29,25 +29,6 @@
     <property name="frameShadow">
      <enum>QFrame::Shadow::Raised</enum>
     </property>
-    <widget class="QLabel" name="rtn_Cadastro">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>981</width>
-       <height>441</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap resource="../qrc/fme.qrc">:/fme/fme.jpg</pixmap>
-     </property>
-     <property name="scaledContents">
-      <bool>true</bool>
-     </property>
-    </widget>
     <widget class="QFrame" name="Tela_Cadastro">
      <property name="geometry">
       <rect>
@@ -191,6 +172,27 @@ background-color: rgb(255, 0, 0);</string>
       </property>
      </widget>
     </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>1041</width>
+       <height>471</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="../qrc/fme.qrc">:/icon 01/fme.jpg</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <zorder>label</zorder>
+    <zorder>Tela_Cadastro</zorder>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -198,7 +200,7 @@ background-color: rgb(255, 0, 0);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1115</width>
+     <width>1104</width>
      <height>33</height>
     </rect>
    </property>

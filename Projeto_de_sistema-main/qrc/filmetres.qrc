@@ -1,0 +1,17 @@
+<RCC>
+  <qresource prefix="icon 1">
+    <file>John_Wick_3.png</file>
+  </qresource>
+  <qresource prefix="perfil">
+    <file>icon_perfil.png</file>
+  </qresource>
+  <qresource prefix="icon2">
+    <file>Single seul wook.jpg</file>
+  </qresource>
+  <qresource prefix="icon3">
+    <file>one piece red.jpg</file>
+  </qresource>
+  <qresource prefix="icon 4">
+    <file>ghost in the shell.jpg</file>
+  </qresource>
+</RCC>

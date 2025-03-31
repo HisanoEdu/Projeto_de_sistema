@@ -1,0 +1,14 @@
+<RCC>
+  <qresource prefix="icon1">
+    <file>Gladiador 2.webp</file>
+  </qresource>
+  <qresource prefix="icon2">
+    <file>round 6.jpg</file>
+  </qresource>
+  <qresource prefix="icon3">
+    <file>sena.webp</file>
+  </qresource>
+  <qresource prefix="icon 4">
+    <file>substancia.jpg</file>
+  </qresource>
+</RCC>

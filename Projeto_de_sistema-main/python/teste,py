@@ -1,0 +1,128 @@
+import sys
+import mysql.connector
+from PySide6 import QtWidgets
+from PySide6.QtCore import QCoreApplication, QMetaObject, Qt
+from PySide6.QtGui import QFont
+from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QFrame, QPushButton, QTextEdit, QWidget, QMessageBox, QVBoxLayout
+from PySide6.QtGui import QPixmap
+
+class tela2(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+
+    def setupUi(self, MainWindow):
+        if not MainWindow.objectName():
+            MainWindow.setObjectName(u"MainWindow")
+        MainWindow.resize(844, 600)
+        MainWindow.setStyleSheet(u"background-color: white;")
+        
+        self.centralwidget = QWidget(MainWindow)
+        self.centralwidget.setObjectName(u"centralwidget")
+        self.Bg_total = QFrame(self.centralwidget)
+        self.Bg_total.setObjectName(u"Bg_total")
+        self.Bg_total.setGeometry(20, 30, 801, 541)
+        self.Bg_total.setStyleSheet(u"background-color: white;\n"
+"border-radius: 20px;\n"
+"box-shadow: 3px 3px 25px rgba(17, 17, 17, 0.8);")
+        self.Bg_total.setFrameShape(QFrame.Box)
+        self.Bg_total.setFrameShadow(QFrame.Raised)
+        
+        self.BG_photo = QLabel(self.Bg_total)
+        self.BG_photo.setObjectName(u"BG_photo")
+        self.BG_photo.setGeometry(0, 40, 500, 500)
+        self.BG_photo.setPixmap(QPixmap(u"../../../Downloads/flat_design_astronaut-removebg-preview 1 (1).png"))
+        
+        self.Txt_Login = QLabel(self.Bg_total)
+        self.Txt_Login.setObjectName(u"Txt_Login")
+        self.Txt_Login.setGeometry(610, 120, 121, 31)
+        font = QFont()
+        font.setFamilies([u"Montserrat ExtraBold"])
+        font.setPointSize(20)
+        self.Txt_Login.setFont(font)
+        self.Txt_Login.setStyleSheet(u"color: #52D0ED;")
+        
+        self.TextLogin = QLabel(self.Bg_total)
+        self.TextLogin.setObjectName(u"TextLogin")
+        self.TextLogin.setGeometry(550, 200, 51, 21)
+        font1 = QFont()
+        font1.setFamilies([u"Montserrat Medium"])
+        font1.setPointSize(12)
+        self.TextLogin.setFont(font1)
+        self.TextLogin.setStyleSheet(u"color: #22354B;")
+        
+        self.Txt_Senha = QLabel(self.Bg_total)
+        self.Txt_Senha.setObjectName(u"Txt_Senha")
+        self.Txt_Senha.setGeometry(550, 250, 51, 16)
+        self.Txt_Senha.setFont(font1)
+        self.Txt_Senha.setStyleSheet(u"color: #22354B")
+        
+        self.textEdit = QTextEdit(self.Bg_total)
+        self.textEdit.setObjectName(u"textEdit")
+        self.textEdit.setGeometry(620, 200, 104, 31)
+        self.textEdit.setStyleSheet(u"border: 2px solid #D2D2D2;\n"
+"border-radius: 2px;")
+        
+        self.textEdit_2 = QTextEdit(self.Bg_total)
+        self.textEdit_2.setObjectName(u"textEdit_2")
+        self.textEdit_2.setGeometry(620, 240, 104, 31)
+        self.textEdit_2.setStyleSheet(u"border: 2px solid #D2D2D2;\n"
+"border-radius: 2px;")
+        
+        self.login_btn = QPushButton(self.Bg_total)
+        self.login_btn.setObjectName(u"login_btn")
+        self.login_btn.setGeometry(630, 290, 75, 23)
+        self.login_btn.setStyleSheet(u"background: #52D0ED;\n"
+"color: white;\n"
+"border-radius: 20px;")
+        self.login_btn.setText("Login")
+        self.login_btn.clicked.connect(self.login_usuario)
+        
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.retranslateUi(MainWindow)
+
+        QMetaObject.connectSlotsByName(MainWindow)
+
+    def retranslateUi(self, MainWindow):
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        self.BG_photo.setText("")
+        self.Txt_Login.setText(QCoreApplication.translate("MainWindow", u"Login", None))
+        self.TextLogin.setText(QCoreApplication.translate("MainWindow", u"Login", None))
+        self.Txt_Senha.setText(QCoreApplication.translate("MainWindow", u"Senha", None))
+        self.login_btn.setText(QCoreApplication.translate("MainWindow", u"Login", None))
+        
+    def login_usuario(self):
+        login = self.textEdit.toPlainText()
+        senha = self.textEdit_2.toPlainText()
+
+        if login and senha:
+            self.login_usuario_no_banco(login, senha)
+        else:
+            QMessageBox.warning(None, "Atenção", "Por favor, preencha todos os campos.")
+    
+    def login_usuario_no_banco(self, login, senha):
+        try:
+            # Conexão com o banco de dados MySQL
+            db = mysql.connector.connect(
+                host="localhost",  # Altere se necessário
+                user="root",       # Altere para o seu usuário
+                password="1234",    # Altere para sua senha
+                database="exercicio"  # Altere para o seu banco de dados
+            )
+            
+            cursor = db.cursor()
+            sql = "SELECT * FROM usuarios WHERE login = %s AND senha = %s"
+            val = (login, senha)
+            cursor.execute(sql, val)
+            result = cursor.fetchone()
+            
+            if result:
+                QMessageBox.information(None, "Sucesso", "Login realizado com sucesso!")
+            else:
+                QMessageBox.warning(None, "Erro", "Login ou senha incorretos.")
+            
+            cursor.close()
+            db.close()
+
+        except mysql.connector.Error as err:
+            QMessageBox.critical(None, "Erro", f"Ocorreu um erro: {err}")

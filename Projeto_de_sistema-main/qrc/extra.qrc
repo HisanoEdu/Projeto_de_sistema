@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="icon 1">
+    <file>one piece serie.webp</file>
+  </qresource>
+  <qresource prefix="icon 2">
+    <file>Avatar.jpeg</file>
+  </qresource>
+  <qresource prefix="icon 3">
+    <file>orgulho e preconceito.webp</file>
+  </qresource>
+</RCC>

@@ -183,8 +183,8 @@ font: 22pt &quot;Segoe UI&quot;;</string>
   </widget>
  </widget>
  <resources>
-  <include location="../python/qrc/fme.qrc"/>
   <include location="../qrc/fme.qrc"/>
  </resources>
+  <include location="../python/qrc/fme.qrc"/>
  <connections/>
 </ui>

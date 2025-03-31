@@ -17,7 +17,7 @@ def criar_tabela():
     try:
         conn = mysql.connector.connect(**banco)
         cursor = conn.cursor()
-        cursor.execute('''
+        cursor.execute(''')
             CREATE TABLE IF NOT EXISTS imagens (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 nome VARCHAR(255) NOT NULL,

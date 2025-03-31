@@ -1,0 +1,17 @@
+<RCC>
+  <qresource prefix="icon 1">
+    <file>star wars.webp</file>
+  </qresource>
+  <qresource prefix="icon 2">
+    <file>btn_img_wicked.png</file>
+  </qresource>
+  <qresource prefix="icon 3">
+    <file>flow.webp</file>
+  </qresource>
+  <qresource prefix="icon 4">
+    <file>O_Problema_dos_3_Corpos.webp</file>
+  </qresource>
+  <qresource prefix="icon perfil">
+    <file>icon_perfil.png</file>
+  </qresource>
+</RCC>

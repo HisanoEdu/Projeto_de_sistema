@@ -1,0 +1,9 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource prefix="/fme">
+        <file>fme.jpg</file>
+    </qresource>
+    <qresource prefix="/icon 01">
+        <file>fme.jpg</file>
+    </qresource>
+</RCC>

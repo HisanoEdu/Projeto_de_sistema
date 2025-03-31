@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
-
 import sys
 import mysql.connector
 from PySide6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
-                               QLabel, QFrame, QPushButton, QGridLayout, QScrollArea, QSizePolicy)
+                               QLabel, QFrame, QPushButton, QGridLayout, QScrollArea, QSizePolicy,
+                               QMessageBox, QDialog, QFormLayout, QLineEdit)
 from PySide6.QtCore import Qt, QSize, QCoreApplication, QMetaObject
 from PySide6.QtGui import QPixmap, QImage, QFont
 
@@ -12,8 +11,91 @@ banco = {
     'host': '127.0.0.1',
     'user': 'root',
     'password': '',
-    'database': 'cadastrar_imagem'
+    'database': 'cinefilmes_db'
 }
+
+# Classe para o diálogo de edição de usuário
+class EditUserDialog(QDialog):
+    def __init__(self, parent=None, email_usuario=None):
+        super().__init__(parent)
+        self.email_usuario = email_usuario  # Email do usuário logado
+        self.setWindowTitle("Editar Dados do Usuário")
+        self.setMinimumSize(QSize(400, 300))
+        self.setStyleSheet("background: #221F1F; color: white;")
+
+        # Layout principal do diálogo
+        layout = QFormLayout(self)
+
+        # Campos de entrada
+        self.nome_input = QLineEdit(self)
+        self.nome_input.setStyleSheet("background: white; color: black; border-radius: 5px; padding: 5px;")
+        layout.addRow("Nome:", self.nome_input)
+
+        # Email como somente leitura
+        self.email_input = QLineEdit(self)
+        self.email_input.setReadOnly(True)
+        self.email_input.setStyleSheet("background: #d3d3d3; color: black; border-radius: 5px; padding: 5px;")
+        layout.addRow("Email:", self.email_input)
+
+        self.senha_input = QLineEdit(self)
+        self.senha_input.setEchoMode(QLineEdit.Password)
+        self.senha_input.setStyleSheet("background: white; color: black; border-radius: 5px; padding: 5px;")
+        layout.addRow("Senha:", self.senha_input)
+
+        # Botões
+        button_layout = QHBoxLayout()
+        self.save_button = QPushButton("Salvar", self)
+        self.save_button.setStyleSheet("background: red; color: white; border-radius: 5px; padding: 5px;")
+        self.save_button.clicked.connect(self.salvar_dados)
+        button_layout.addWidget(self.save_button)
+
+        self.cancel_button = QPushButton("Cancelar", self)
+        self.cancel_button.setStyleSheet("background: gray; color: white; border-radius: 5px; padding: 5px;")
+        self.cancel_button.clicked.connect(self.reject)
+        button_layout.addWidget(self.cancel_button)
+
+        layout.addRow(button_layout)
+
+        # Carregar dados do usuário logado
+        self.carregar_dados_usuario()
+
+    def carregar_dados_usuario(self):
+        try:
+            conn = mysql.connector.connect(**banco)
+            cursor = conn.cursor()
+            cursor.execute("SELECT nome, email, senha FROM usuarios WHERE email = %s", (self.email_usuario,))
+            resultado = cursor.fetchone()
+            if resultado:
+                nome, email, senha = resultado
+                self.nome_input.setText(nome)
+                self.email_input.setText(email)
+                self.senha_input.setText(senha)
+            conn.close()
+        except mysql.connector.Error as e:
+            QMessageBox.critical(self, "Erro", f"Erro ao carregar dados: {str(e)}")
+
+    def salvar_dados(self):
+        nome = self.nome_input.text().strip()
+        senha = self.senha_input.text().strip()
+        email = self.email_input.text().strip()
+
+        if not nome or not senha:
+            QMessageBox.warning(self, "Atenção", "Nome e senha devem ser preenchidos!")
+            return
+
+        try:
+            conn = mysql.connector.connect(**banco)
+            cursor = conn.cursor()
+            cursor.execute(
+                "UPDATE usuarios SET nome = %s, senha = %s WHERE email = %s",
+                (nome, senha, email)
+            )
+            conn.commit()
+            conn.close()
+            QMessageBox.information(self, "Sucesso", "Dados atualizados com sucesso!")
+            self.accept()
+        except mysql.connector.Error as e:
+            QMessageBox.critical(self, "Erro", f"Erro ao salvar dados: {str(e)}")
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -36,6 +118,8 @@ class Ui_MainWindow(object):
         self.Frame_Todo.setFrameShadow(QFrame.Raised)
         self.horizontalLayout = QHBoxLayout(self.Frame_Todo)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalLayout.setContentsMargins(20, 10, 20, 10)
+        self.horizontalLayout.setSpacing(10)
 
         self.Frame_Espaco3 = QFrame(self.Frame_Todo)
         self.Frame_Espaco3.setObjectName(u"Frame_Espaco3")
@@ -58,13 +142,13 @@ class Ui_MainWindow(object):
         self.Btn_Inicio = QPushButton(self.Frame_Todo)
         self.Btn_Inicio.setObjectName(u"Btn_Inicio")
         self.Btn_Inicio.setMaximumSize(QSize(130, 16777215))
-        self.Btn_Inicio.setStyleSheet(u"color: red; border:none;")
+        self.Btn_Inicio.setStyleSheet(u"color: red; border: none; background: transparent; padding: 5px;")
         self.horizontalLayout.addWidget(self.Btn_Inicio)
 
         self.Btn_FileseSeries = QPushButton(self.Frame_Todo)
         self.Btn_FileseSeries.setObjectName(u"Btn_FileseSeries")
         self.Btn_FileseSeries.setMaximumSize(QSize(130, 16777215))
-        self.Btn_FileseSeries.setStyleSheet(u"border:none; color: red;")
+        self.Btn_FileseSeries.setStyleSheet(u"color: red; border: none; background: transparent; padding: 5px;")
         self.horizontalLayout.addWidget(self.Btn_FileseSeries)
 
         self.Frame_Espaco1 = QFrame(self.Frame_Todo)
@@ -76,8 +160,8 @@ class Ui_MainWindow(object):
 
         self.Btn_Recomendacao = QPushButton(self.Frame_Todo)
         self.Btn_Recomendacao.setObjectName(u"Btn_Recomendacao")
-        self.Btn_Recomendacao.setMaximumSize(QSize(130, 16777215))
-        self.Btn_Recomendacao.setStyleSheet(u"border: none; color: red;")
+        self.Btn_Recomendacao.setMaximumSize(QSize(200, 16777215))  # Aumentado para 200 para evitar corte
+        self.Btn_Recomendacao.setStyleSheet(u"color: red; border: none; background: transparent; padding: 5px;")
         self.horizontalLayout.addWidget(self.Btn_Recomendacao)
 
         self.Frame_Espaco2 = QFrame(self.Frame_Todo)
@@ -86,12 +170,19 @@ class Ui_MainWindow(object):
         self.Frame_Espaco2.setFrameShadow(QFrame.Raised)
         self.horizontalLayout.addWidget(self.Frame_Espaco2)
 
-        self.Img_usuario = QLabel(self.Frame_Todo)
-        self.Img_usuario.setObjectName(u"Img_usuario")
-        self.Img_usuario.setMaximumSize(QSize(60, 16777215))
-        self.Img_usuario.setPixmap(QPixmap(u"icon_perfil.png"))
-        self.Img_usuario.setScaledContents(True)
-        self.horizontalLayout.addWidget(self.Img_usuario)
+        # Botão "Sair"
+        self.Btn_Sair = QPushButton(self.Frame_Todo)
+        self.Btn_Sair.setObjectName(u"Btn_Sair")
+        self.Btn_Sair.setMinimumSize(QSize(80, 30))
+        self.Btn_Sair.setStyleSheet(u"color: white; background: red; border: none; border-radius: 5px; padding: 5px;")
+        self.horizontalLayout.addWidget(self.Btn_Sair)
+
+        # Botão "Editar Dados"
+        self.Btn_Editar_Dados = QPushButton(self.Frame_Todo)
+        self.Btn_Editar_Dados.setObjectName(u"Btn_Editar_Dados")
+        self.Btn_Editar_Dados.setMinimumSize(QSize(120, 30))
+        self.Btn_Editar_Dados.setStyleSheet(u"color: white; background: red; border: none; border-radius: 5px; padding: 5px;")
+        self.horizontalLayout.addWidget(self.Btn_Editar_Dados)
 
         self.verticalLayout.addWidget(self.Frame_Todo)
 
@@ -151,11 +242,13 @@ class Ui_MainWindow(object):
         self.Btn_Inicio.setText(QCoreApplication.translate("MainWindow", u"Inicio", None))
         self.Btn_FileseSeries.setText(QCoreApplication.translate("MainWindow", u"Filmes e Séries", None))
         self.Btn_Recomendacao.setText(QCoreApplication.translate("MainWindow", u"Recomenda\u00e7\u00e3o Aleatoria", None))
-        self.Img_usuario.setText("")
+        self.Btn_Sair.setText(QCoreApplication.translate("MainWindow", u"Sair", None))
+        self.Btn_Editar_Dados.setText(QCoreApplication.translate("MainWindow", u"Editar Dados", None))
 
 class MainWindow(QMainWindow):
-    def __init__(self):
+    def __init__(self, email_usuario=None):
         super().__init__()
+        self.email_usuario = email_usuario  # Armazenar o email do usuário logado
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
@@ -181,6 +274,8 @@ class MainWindow(QMainWindow):
         # Conectar botões de navegação
         self.ui.Btn_Inicio.clicked.connect(self.voltar_para_tela_principal)
         self.ui.Btn_Recomendacao.clicked.connect(self.abrir_tela_aleatoria)
+        self.ui.Btn_Sair.clicked.connect(self.sair)
+        self.ui.Btn_Editar_Dados.clicked.connect(self.editar_dados)
 
     def carregar_filmes_series(self):
         try:
@@ -192,9 +287,9 @@ class MainWindow(QMainWindow):
         except mysql.connector.Error as e:
             print(f"Erro ao conectar ao banco de dados: {e}")
         finally:
-            if cursor:
+            if 'cursor' in locals():
                 cursor.close()
-            if conn:
+            if 'conn' in locals():
                 conn.close()
 
     def exibir_filmes_series(self):
@@ -249,21 +344,25 @@ class MainWindow(QMainWindow):
 
     def voltar_para_tela_principal(self):
         from Tela_home import MainWindow as TelaMainWindow
-        self.tela_principal = TelaMainWindow()
+        self.tela_principal = TelaMainWindow(email_usuario=self.email_usuario)
         self.tela_principal.show()
         self.close()
 
     def abrir_tela_aleatoria(self):
         from Tela_Aleatorio import MainWindow as AleatoriaMainWindow
-        self.tela_aleatoria = AleatoriaMainWindow()
+        self.tela_aleatoria = AleatoriaMainWindow(email_usuario=self.email_usuario)
         self.tela_aleatoria.show()
         self.close()
 
+    def sair(self):
+        QApplication.quit()
+
+    def editar_dados(self):
+        dialog = EditUserDialog(self, self.email_usuario)
+        dialog.exec()  # Abre o diálogo de forma modal
+
 def main():
     app = QApplication(sys.argv)
-    window = MainWindow()
+    window = MainWindow(email_usuario="teste@example.com")  # Simulando um email para teste
     window.show()
     sys.exit(app.exec())
-
-if __name__ == "__main__":
-    main()

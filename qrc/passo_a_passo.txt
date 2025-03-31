@@ -1,0 +1,57 @@
+#create database Sistema_Filme
+
+#Dentro desse Sistema_filme vai ficar bem asssim
+
+
+    Sistema_Filme
+        |
+        |
+        |
+        ---- usuario                    # # Essa é a tabela fazer cadastro e fazer login
+        ---- Filmes/series              # # essa é a tabela para guardar as series e Filmes
+
+Não sei se ficou confuso isso?
+O que achou? Ai teria a tela de entrada 
+ aquela de inicio de abertura. Isso, ai o usuario clica em entrar ou cadastrar, e faz o cadastro dele que ao cadastrar 
+ vai pra salvar em usuario. O ponto chave, é salvar tudo no mesmo database. Quando eu criei, eu usei um para teste que é aquele insert.
+
+ ai a questão das telas de editar perfil e do adm
+ também vão entrar nesse mesmo quesito, vai ser um pouco mais dificil, mas da pra fazer. entendi, eu 
+ amanhã cedo, eu faço essa de adm, me passa esse banco de dados que vocÊ criou que eu vou editar ele 
+ eu O
+
+ o banco do cadastro e do . isso, eu vou criar um campo chamado categoria ou classe n sei ao certo. 
+ mas se o login for do adm ele vai pra aqiuela tela de adicionar filme, se for do usuario ele vaio para a dos filmes
+ seria algo di tipo assim: 
+
+ if (categoria_usuario == 1):
+    print("adm")
+    #Abrir tela do adm
+elif (categoria_usuario == 2):
+    print(adm)
+    #Abrir tel ado usuario.
+    essa é a ideia de fazer ela 
+
+    entendi abriria tipo para adiconar o filme e colocar a sinopse mas essas partes da para fazer como fez com a tela home ne 
+    de maniera automatica
+    assim, vai dar um trabalhinho, mas eu consigo não é dificil. 
+
+    ok valeu pela ajuda
+    ^^^
+    me lembra se eu esquecer de fazer. 
+    provavelmnete eu n esqueço, eu anotei na minha agenda. mas mesmo assim. ok
+
+    acho que estou querendo fazer a recuperação 
+    está em cima, enrolei muito no desing 
+    uma coisa que acho q vc n percebeu do mauricio, é que ele nao reprova se a pessoa nao conseguir entregar do jeito que ele quer, ele reprova se a pessoa nem tentar fazer. 
+    Falo isso pq ele teve motivo pra me reprovar. 
+
+    ele tem esse lado bom de não reprovar é que ele fica fazendo pressão psicologica mesmo.
+     entendo total, mas eu consigo sim, amanhã fazer essa parte, caso vc ficar de recuperação, eu te ajudo dnv sem problema. ok obrigado
+
+     acho que ja vou amanhã eu termino de arrumar as coisas mas obrigada, amanhã vou tentar colocar os filmes de novo, perfeito, viu posso só testar uma coisa antes de sair? sim
+
+
+     me passa todos os arquivos, que amanhã eu vejo se deixo a parte do login funcional, ok 
+
+     eu vou sair da sua tela, ta ok
