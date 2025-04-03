@@ -1,8 +1,0 @@
-<RCC>
-  <qresource prefix="perfil">
-    <file>icon_perfil.png</file>
-  </qresource>
-  <qresource prefix="perfil 1">
-    <file>icon_perfil.png</file>
-  </qresource>
-</RCC>
